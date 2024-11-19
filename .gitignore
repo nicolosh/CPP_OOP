@@ -2,3 +2,9 @@
 node_modules
 .tmp
 npm-debug.log
+src/Ch00-Introduction/00_01/begin/persistence
+src/Ch00-Introduction/00_01/end/persistence
+src/Ch01-Classes-and-Objects/01_04/end/main
+src/Ch01-Classes-and-Objects/01_05/begin/main
+src/Ch01-Classes-and-Objects/01_05/end/main
+src/Ch01-Classes-and-Objects/01_07/end/thermostat

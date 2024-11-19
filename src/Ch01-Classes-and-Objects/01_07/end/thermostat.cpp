@@ -1,12 +1,10 @@
 #include <iostream>
-#include <string>
-using namespace std;
 
 class Thermostat
 {
 public:
   // Constructor to initialize the thermostat
-  Thermostat(float temp, unsigned int m, const string &loc)
+  Thermostat(float temp, unsigned int m, const std::string &loc)
   {
     temperature = temp;
     mode = m;
@@ -16,19 +14,19 @@ public:
   // Destructor
   ~Thermostat()
   {
-    cout << "Thermostat in " << location << " is being destroyed." << endl;
+    std::cout << "Thermostat in " << location << " is being destroyed." << std::endl;
   }
 
   // Member function to display current status of the thermostat
   void displayStatus()
   {
-    cout << "Location: " << location << " Temperature: " << temperature << "°C Mode: " << (mode == 0 ? "OFF " : (mode == 1 ? "COOLING " : "HEATING ")) << endl;
+    std::cout << "Location: " << location << " Temperature: " << temperature << "°C Mode: " << (mode == 0 ? "OFF " : (mode == 1 ? "COOLING " : "HEATING ")) << std::endl;
   }
 
 private:
-  float temperature; // Temperature in degrees Celsius
-  unsigned int mode; // Mode (0 for OFF, 1 for COOLING, 2 for HEATING)
-  string location;   // Location of the thermostat
+  float temperature;    // Temperature in degrees Celsius
+  unsigned int mode;    // Mode (0 for OFF, 1 for COOLING, 2 for HEATING)
+  std::string location; // Location of the thermostat
 };
 
 int main()

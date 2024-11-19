@@ -1,6 +1,6 @@
 #include "review.h"
 
-Review::Review(unsigned int r, const string &t, const string &txt)
+Review::Review(unsigned int r, const std::string &t, const std::string &txt)
 {
   rating = r;
   title = t;
@@ -9,10 +9,10 @@ Review::Review(unsigned int r, const string &t, const string &txt)
 
 Review::~Review()
 {
-  cout << "Review object is being deleted." << endl;
+  std::cout << "Review object is being deleted." << std::endl;
 }
 
 void Review::displayDetails() const
 {
-  cout << "Rating: " << rating << "/5\nTitle: " << title << "\nText: " << text << endl;
+  std::cout << "Rating: " << rating << "/5\nTitle: " << title << "\nText: " << text << std::endl;
 }

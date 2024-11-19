@@ -2,7 +2,6 @@
 #define REVIEW_H
 
 #include <iostream>
-using namespace std;
 
 class Review
 {
@@ -11,8 +10,8 @@ public:
 
 private:
   unsigned int rating;
-  string title;
-  string text;
+  std::string title;
+  std::string text;
 };
 
 #endif

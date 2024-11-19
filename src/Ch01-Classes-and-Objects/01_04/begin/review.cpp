@@ -2,5 +2,5 @@
 
 void Review::displayDetails() const
 {
-  cout << "Rating: " << rating << "/5\nTitle: " << title << "\nText: " << text << endl;
+  std::cout << "Rating: " << rating << "/5\nTitle: " << title << "\nText: " << text << std::endl;
 }
