@@ -5,9 +5,11 @@
       "label": "C/C++: g++ build active file",
       "command": "/usr/bin/g++",
       "args": [
+        "-std=c++20",
         "-fdiagnostics-color=always",
         "-g",
-        "${file}",
+        //"${file}",
+        "*.cpp",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}"
       ],
