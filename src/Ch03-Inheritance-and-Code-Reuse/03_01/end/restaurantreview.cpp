@@ -33,10 +33,7 @@ void RestaurantReview::setRating(unsigned int r)
   {
     throw std::invalid_argument("Rating must be between 1 and 5");
   }
-  else
-  {
-    rating = r;
-  }
+  rating = r;
 }
 
 void RestaurantReview::setTitle(const std::string &t)
