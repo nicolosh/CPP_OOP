@@ -16,7 +16,7 @@ Review::~Review()
 
 void Review::displayDetails() const
 {
-  std::cout << "Rating: " << rating << "/5\n"
+  std::cout << "\nRating: " << rating << "/5\n"
             << "Title: " << title << "\n"
             << "Text: " << text << std::endl;
 }
