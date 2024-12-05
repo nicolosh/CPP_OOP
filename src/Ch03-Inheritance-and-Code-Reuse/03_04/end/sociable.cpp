@@ -9,5 +9,5 @@ void Sociable::displaySocialStats() const
 {
     std::cout << likes << " likes, "
               << shares << " shares, "
-              << comments.size() << " comments\n";
+              << comments.size() << " comments" << std::endl;
 }

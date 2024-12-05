@@ -2,6 +2,7 @@
 #define REVIEW_H
 
 #include <iostream>
+#include <ctime>
 
 class Review
 {
@@ -23,6 +24,8 @@ protected:
   std::string validateAndTrim(const std::string &str,
                               unsigned int maxLength,
                               const std::string &fieldName) const;
+
+  std::time_t timestamp;
 
 private:
   static const unsigned int MIN_RATING = 1;
