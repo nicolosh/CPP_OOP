@@ -4,7 +4,7 @@ RestaurantReview::RestaurantReview(unsigned int r,
                                    const std::string &t,
                                    const std::string &txt,
                                    const std::string &type,
-                                   bool delivery)
+                                   bool delivery) : Review(r, t, txt)
 {
   //setRating(r);
   //setTitle(t);

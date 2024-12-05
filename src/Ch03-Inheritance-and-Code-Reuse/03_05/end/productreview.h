@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include "review.h"
+#include "sociable.h"
 
-class ProductReview : public Review
+class ProductReview : public Review, public Sociable
 {
 public:
   ProductReview(unsigned int r,
@@ -25,7 +26,6 @@ public:
 private:
   static const unsigned int MAX_PRODUCTID_LENGTH = 64;
   static const unsigned int MAX_CATEGORY_LENGTH = 512;
-
   std::string productId;
   std::string category;
 };
