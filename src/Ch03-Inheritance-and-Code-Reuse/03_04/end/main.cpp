@@ -14,15 +14,6 @@ int main()
                                               "Multi Testers");
   productReview.displayDetails();
 
-  // Social interactions
-  productReview.like();
-  productReview.like();
-  productReview.share();
-  productReview.addComment("I bought this too!");
-
-  std::cout << "\nAfter social interactions:\n";
-  productReview.displayDetails();
-
   RestaurantReview restaurantReview = RestaurantReview(4,
                                                        "Overpriced",
                                                        "The food was delicious. However, the prices are way too high.",
