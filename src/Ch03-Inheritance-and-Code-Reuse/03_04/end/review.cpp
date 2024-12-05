@@ -1,6 +1,8 @@
 #include "review.h"
 
-Review::Review(unsigned int r, const std::string &t, const std::string &txt)
+Review::Review(unsigned int r,
+               const std::string &t,
+               const std::string &txt) : timestamp(std::time(nullptr))
 {
   setRating(r);
   setTitle(t);
@@ -14,7 +16,7 @@ Review::~Review()
 
 void Review::displayDetails() const
 {
-  std::cout << "Rating: " << rating << "/5\n"
+  std::cout << "\nRating: " << rating << "/5\n"
             << "Title: " << title << "\n"
             << "Text: " << text << std::endl;
 }

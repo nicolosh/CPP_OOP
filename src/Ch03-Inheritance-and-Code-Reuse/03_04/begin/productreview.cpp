@@ -6,9 +6,6 @@ ProductReview::ProductReview(unsigned int r,
                              const std::string &id,
                              const std::string &cat) : Review(r, t, txt)
 {
-  // setRating(r);
-  // setTitle(t);
-  // setText(txt);
   setProductId(id);
   setCategory(cat);
 }

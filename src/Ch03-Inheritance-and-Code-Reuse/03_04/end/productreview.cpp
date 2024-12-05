@@ -21,6 +21,12 @@ ProductReview::~ProductReview()
 // Extends the base behavior
 /*void ProductReview::displayDetails() const
 {
+  // std::cout << "Posted on: " << timestamp << std::endl; // Error: ambiguous!
+  //std::cout << "Review posted: " << Review::timestamp << "\n"
+  //          << "Last social activity: " << Sociable::timestamp << std::endl;
+  std::cout << "Review posted: " << Review::timestamp << "\n"
+            << "Last social activity: " << Sociable::timestamp << std::endl;
+
   Review::displayDetails();
   std::cout << "Product ID: " << productId << "\n"
             << "Category: " << category << std::endl;

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "review.h"
 
-class RestaurantReview: public Review
+class RestaurantReview : public Review
 {
 public:
   RestaurantReview(unsigned int r,
