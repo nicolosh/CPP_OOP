@@ -16,9 +16,8 @@ public:
 
   ~ProductReview();
 
-  unsigned int getRating() const;
-  
-  void displayDetails() const;
+  unsigned int getRating() const override;
+  void displayDetails() const override;
 
   std::string getProductId() const { return productId; }
   std::string getCategory() const { return category; }

@@ -15,8 +15,8 @@ public:
                    unsigned int service);
 
   ~RestaurantReview();
-  unsigned int getRating() const;
-  void displayDetails() const;
+  unsigned int getRating() const override;
+  void displayDetails() const override;
 
   unsigned int getServiceRating() const { return serviceRating; }
   std::string getCuisine() const { return cuisine; }
