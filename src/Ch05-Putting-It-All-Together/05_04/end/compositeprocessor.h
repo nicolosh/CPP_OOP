@@ -7,6 +7,14 @@
 class CompositeProcessor : public TextProcessor
 {
 public:
+  ~CompositeProcessor()
+  {
+    for (auto *proc : processors)
+    {
+      delete proc; // Clean up each processor
+    }
+  }
+
   void addProcessor(TextProcessor *processor)
   {
     processors.push_back(processor);
