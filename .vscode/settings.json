@@ -68,5 +68,11 @@
     "typeinfo": "cpp",
     "ctime": "cpp",
     "fstream": "cpp"
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
   }
 }
