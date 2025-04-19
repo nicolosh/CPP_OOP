@@ -2,7 +2,7 @@
 
 int main()
 {
-  bankAccount nickAccount("nick97", 1000, 1225432232);
+  bankAccount nickAccount("nick97", 1000, 12253);
   nickAccount.deposit(10020);
   nickAccount.withdraw(9000);
   nickAccount.displayBalance();
@@ -13,7 +13,7 @@ int main()
   nickAccount.displayBalance();
 
   Auditor auditor;
-  std::cout << "The nickAccount is " << (auditor.verifyAccount(nickAccount) ? "set correclty" : "set wrongly") << std::endl;
+  std::cout << (auditor.verifyAccount(nickAccount) ? "Bank account set correctly" : "Bank account set wrongly") << std::endl;
 
   return 0;
 }
