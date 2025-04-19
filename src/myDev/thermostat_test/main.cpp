@@ -9,7 +9,7 @@ int main()
   thermo.setLocation("Bedroom");
   thermo.setMode(2);
   thermo.setUoM("C");
-  thermo.setTemp(33.5);
+  thermo.setTemp(13.75);
   thermo.displayStatus("F");
   return 0;
 }

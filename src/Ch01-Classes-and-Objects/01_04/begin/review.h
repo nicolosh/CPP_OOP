@@ -31,6 +31,7 @@ private:
   unsigned int rating;
   std::string title;
   std::string text;
+  mutable unsigned int accessCount = 0;
 };
 
 #endif

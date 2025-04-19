@@ -20,8 +20,8 @@ public:
   void setText(const std::string &txt);
 
 private:
-  friend class ReviewBot; // ReviewBot can now access private members
-  
+  friend class ReviewBot; // ReviewBot now access private members of class Review
+
   static const unsigned int MIN_RATING = 1;
   static const unsigned int MAX_RATING = 5;
   static const unsigned int MAX_TITLE_LENGTH = 128;
