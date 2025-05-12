@@ -1,6 +1,8 @@
 #include "review.h"
 
-Review::Review(unsigned int r, const std::string &t, const std::string &txt)
+Review::Review(unsigned int r,
+               const std::string &t,
+               const std::string &txt) : timestamp(std::time(nullptr))
 {
   setRating(r);
   setTitle(t);
@@ -9,23 +11,21 @@ Review::Review(unsigned int r, const std::string &t, const std::string &txt)
 
 Review::~Review()
 {
-  std::cout << "Review object is being deleted." << std::endl;
+  std::cout << "\nReview object is being deleted." << std::endl;
 }
 
 void Review::displayDetails() const
 {
-  ++accessCount;
-  std::cout << "Rating: " << rating << "/5\n"
+  std::cout << "\nRating: " << rating << "/5\n"
             << "Title: " << title << "\n"
-            << "Text: " << text << "\n"
-            << "Read " << accessCount << " times" << std::endl;
+            << "Text: " << text << std::endl;
 }
 
 void Review::setRating(unsigned int r)
 {
   if (r < MIN_RATING || r > MAX_RATING)
   {
-    throw std::invalid_argument("Rating must be between " + std::to_string(MIN_RATING) + " and " + std::to_string(MAX_RATING));
+    throw std::invalid_argument("Rating must be between 1 and 5");
   }
   else
   {
