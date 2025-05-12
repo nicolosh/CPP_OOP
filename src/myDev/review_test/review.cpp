@@ -25,7 +25,7 @@ void Review::setRating(unsigned int r)
 {
   if (r < MIN_RATING || r > MAX_RATING)
   {
-    throw std::invalid_argument("Rating must be between 1 and 5");
+    throw std::invalid_argument("Rating must be between " + std::to_string(MIN_RATING) + " and " + std::to_string(MAX_RATING));
   }
   else
   {
