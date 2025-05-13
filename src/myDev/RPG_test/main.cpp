@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  Character paperino("paperino", 110, "equipping");
+  Character paperino("paperino", 110, "kicking");
   paperino.displayStatus();
   std::cout << std::endl;
   paperino.setCharacterName("pluto");
@@ -23,6 +23,7 @@ int main()
   Warrior warrior = Warrior("Ridge", 100, 2000, 3000, 350, "attack");
   warrior.addItem("sword");
   warrior.addItem("Gun");
+  warrior.addItem("AK-47");
   warrior.displayStatus();
   return 0;
 }

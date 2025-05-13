@@ -15,8 +15,8 @@ public:
   // getters
   std::string getCharName() const { return characterName; }
   int getCharHealth() const { return health; }
-  // unsigned int getDamage() const { return BASE_DAMAGE; }
   std::string getAction() const { return action; }
+  // unsigned int getDamage() const { return BASE_DAMAGE; }
 
   // setters
   void setCharacterName(const std::string &newName) { characterName = newName; }
@@ -25,12 +25,12 @@ public:
 
 protected:
   // static const unsigned int BASE_DAMAGE = 10; // fixed and constant
-  unsigned int health;       // variable
   std::string characterName; // variable
+  unsigned int health;       // variable
   std::string action;        // variable
 
 private:
-  void validaEmptyString(const std::string &str, const std::string &fieldName = "") const;
+  void validateEmptyString(const std::string &str, const std::string &fieldName = "") const;
 };
 
 #endif

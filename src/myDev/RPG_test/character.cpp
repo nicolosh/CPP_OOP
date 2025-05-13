@@ -1,11 +1,11 @@
 #include "character.h"
-
 #include <iostream>
 
 Character::Character(const std::string &name, int health, const std::string &action)
     : health(health)
 {
-  validaEmptyString(name, "name");
+  validateEmptyString(name, "name");
+  validateEmptyString(action, "action");
 
   characterName = name;
   this->action = action;
@@ -26,7 +26,7 @@ void Character::displayStatus() const
             << action << std::endl;
 }
 
-void Character::validaEmptyString(const std::string &str, const std::string &fieldName) const
+void Character::validateEmptyString(const std::string &str, const std::string &fieldName) const
 {
   if (str.empty())
     throw std::invalid_argument("Character's " + fieldName + " cannot be empty");
