@@ -8,12 +8,9 @@ void Equipment::addItem(const std::string &item)
     throw std::invalid_argument(item + "cannot be empty");
 }
 
-void Equipment::displayInventory()
+void Equipment::displayInventory() const
 {
-  std::cout << "____Inventory items____ \n";
-  for (auto &item : inventoryList)
-  {
-    item[0] = toupper(item[0]);
+  std::cout << "Equipment: " << std::endl;
+  for (const auto &item : inventoryList)
     std::cout << "- " << "" << item << "\n";
-  }
 }

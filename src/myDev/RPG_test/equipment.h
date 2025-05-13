@@ -8,7 +8,7 @@
 class Equipment
 {
 public:
-  void displayInventory();
+  void displayInventory() const;
   // setter
   void addItem(const std::string &item);
   // getter
