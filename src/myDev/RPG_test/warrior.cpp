@@ -2,8 +2,8 @@
 
 Warrior::Warrior(const std::string &name, unsigned int health,
                  const unsigned int attack, const unsigned int defense,
-                 const unsigned int strength, const std::string &action)
-    : Character(name, health, action)
+                 const unsigned int strength)
+    : Character(name, health)
 {
   this->attack = attack;
   this->defense = defense;

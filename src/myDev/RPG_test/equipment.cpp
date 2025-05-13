@@ -11,6 +11,24 @@ void Equipment::addItem(const std::string &item)
 void Equipment::displayInventory() const
 {
   std::cout << "Equipment: " << std::endl;
+
+  std::unordered_map<std::string, int> counts = this->countDuplicateItems();
+  for (const auto &pair : counts)
+  {
+    // counts = {{"knife", 3}, {"sword", 1}}
+    std::cout << pair.first << ": " << pair.second << (pair.second > 1 ? " items" : " item") << "\n";
+  }
+  std::cout << std::endl;
+}
+
+std::unordered_map<std::string, int> Equipment::countDuplicateItems() const
+{
+  // La mappa utilizza le stringhe come chiavi e tiene
+  // traccia del numero di occorrenze di ciascuna stringa
+  // come valore.
+  std::unordered_map<std::string, int> itemCounts;
   for (const auto &item : inventoryList)
-    std::cout << "- " << "" << item << "\n";
+    itemCounts[item]++;
+
+  return itemCounts;
 }

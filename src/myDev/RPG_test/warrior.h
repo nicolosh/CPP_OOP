@@ -9,7 +9,7 @@ class Warrior : public Character // Warrior is a character
 public:
   Warrior(const std::string &name, unsigned int health,
           const unsigned int attack, const unsigned int defense,
-          const unsigned int strength, const std::string &action);
+          const unsigned int strength);
   // getters
   const unsigned int getAttack() { return attack; }
   const unsigned int getDefense() { return defense; }
@@ -18,7 +18,8 @@ public:
   void displayStatus() const // overriding the display status of character
   {
     Character::displayStatus();
-    std::cout << "Attack: " << attack << "\nDefense: " << defense << "\nStrength: " << strength << "\n";
+    std::cout << "Attack: " << attack << "\nDefense: " << defense << "\nStrength: " << strength
+              << "\nTotal Damage: " << BASE_DAMAGE + strength << std::endl;
     equipment.displayInventory();
   };
 

@@ -4,11 +4,13 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <unordered_map>
 
 class Equipment
 {
 public:
   void displayInventory() const;
+  std::unordered_map<std::string, int> countDuplicateItems() const;
   // setter
   void addItem(const std::string &item);
   // getter

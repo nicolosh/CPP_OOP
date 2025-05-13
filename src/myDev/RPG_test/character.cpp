@@ -1,20 +1,18 @@
 #include "character.h"
 #include <iostream>
 
-Character::Character(const std::string &name, int health, const std::string &action)
+Character::Character(const std::string &name, int health)
     : health(health)
 {
   validateEmptyString(name, "name");
-  validateEmptyString(action, "action");
 
   characterName = name;
-  this->action = action;
 }
 
 Character::~Character()
 {
-  characterName[0] = toupper(characterName[0]);
-  std::cout << characterName << " is being deleted! " << std::endl;
+  // characterName[0] = toupper(characterName[0]);
+  // std::cout << characterName << " is being deleted! " << std::endl;
 }
 
 void Character::displayStatus() const
@@ -22,8 +20,8 @@ void Character::displayStatus() const
   std::cout << "Character Status: \n"
             << "Name: " << characterName
             << "\nHealth Score: "
-            << health << "\nAction: "
-            << action << std::endl;
+            << health << "\nBase Damage: "
+            << BASE_DAMAGE << std::endl;
 }
 
 void Character::validateEmptyString(const std::string &str, const std::string &fieldName) const
