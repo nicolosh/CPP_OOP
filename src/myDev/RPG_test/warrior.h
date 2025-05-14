@@ -23,8 +23,12 @@ public:
     equipment.displayInventory();
   };
 
+  void warriorAttack(const Warrior &defender, const std::string &teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const;
   // setter
-  void addItem(const std::string &item) { equipment.addItem(item); }
+  void addItem(const std::string &item)
+  {
+    equipment.addItem(item);
+  }
 
   // TO DO: set attack, defense based on the equipment
 
