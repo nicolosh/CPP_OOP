@@ -21,14 +21,14 @@ public:
   void setCharName(const std::string &newName) { characterName = newName; }
   void updateCharHealth(int healthPoints)
   {
-    int updateHealth = health + healthPoints;
+    int updatedHealth = health + healthPoints;
 
-    if (updateHealth > MAX_HEALTH)
+    if (updatedHealth > MAX_HEALTH)
       health = MAX_HEALTH;
-    else if (updateHealth < 0)
+    else if (updatedHealth < 0)
       health = 0;
     else
-      health = updateHealth;
+      health = updatedHealth;
   }
 
 protected:

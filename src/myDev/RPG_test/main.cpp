@@ -1,29 +1,29 @@
 #include "warrior.h"
 #include <cstdlib> // For random numbers
 #include <ctime>   // For seeding random numbers
-using namespace std;
+// using namespace std;
 
 void simulateFight(std::vector<Warrior> &team1, std::vector<Warrior> &team2)
 {
-  std::cout << "The fight begins between team 1 and team 2!\n";
+  std::cout << "The fight begins between team A and team B!\n";
 
   // Seed random number generator
   std::srand(std::time(nullptr));
 
   while (!team1.empty() && !team2.empty())
   {
-    // Team 1 attacks Team 2
-    int attackerIndex1 = std::rand() % team1.size(); // Random damage between 0 and team1.size
-    int defenderIndex2 = std::rand() % team2.size(); // Random damage between 0 and team2.size
+    // Team 1 attacks Team 2: indexes must be between 0 and teamX.size() otherwise it is not able to access the element if index = teamXsize() (vectors!!!)
+    int attackerIndex1 = std::rand() % team1.size(); // Random damage between 0 and team1.size - 1
+    int defenderIndex2 = std::rand() % team2.size(); // Random damage between 0 and team2.size - 1
 
     // picks 2 random warriors in the 2 teams
     Warrior &attacker_team1 = team1[attackerIndex1];
     Warrior &defender_team2 = team2[defenderIndex2];
 
-    int damage_team1_ON_team2 = std::rand() % 20 + 10; // Random damage between 10 and 30
-    defender_team2.updateCharHealth(-damage_team1_ON_team2);
+    int damage_warT1_ON_warT2 = std::rand() % 21 + 10; // Random damage between 10 and 30
+    defender_team2.updateCharHealth(-damage_warT1_ON_warT2);
     std::cout << attacker_team1.getCharName() << " from Team 1 attacks " << defender_team2.getCharName()
-              << " from Team 2 for " << damage_team1_ON_team2 << " damage. "
+              << " from Team 2 for " << damage_warT1_ON_warT2 << " damage. "
               << defender_team2.getCharName() << "'s health is now " << defender_team2.getCharHealth() << ".\n";
 
     if (defender_team2.getCharHealth() <= 0)
@@ -42,10 +42,10 @@ void simulateFight(std::vector<Warrior> &team1, std::vector<Warrior> &team2)
     Warrior &attacker_team2 = team2[attackerIndex2];
     Warrior &defender_team1 = team1[attackerIndex1];
 
-    int damage_team2_ON_team1 = std::rand() % 20 + 10;
-    defender_team1.updateCharHealth(-damage_team2_ON_team1);
+    int damage_warT2_ON_warT1 = std::rand() % 21 + 10;
+    defender_team1.updateCharHealth(-damage_warT2_ON_warT1);
     std::cout << attacker_team2.getCharName() << " from Team 2 attacks " << defender_team1.getCharName()
-              << " from Team 1 for " << damage_team2_ON_team1 << " damage. "
+              << " from Team 1 for " << damage_warT2_ON_warT1 << " damage. "
               << defender_team1.getCharName() << "'s health is now " << defender_team1.getCharHealth() << ".\n";
 
     if (defender_team1.getCharHealth() <= 0)
@@ -94,6 +94,7 @@ int main()
   equipment.displayInventory();
 
   std::cout << std::endl;
+  std::cout << "Creating the warriors for 2 teams\n";
   Warrior Ridge = Warrior("Ridge", 100, 2000, 3000, 350);
   Ridge.addItem("sword");
   Ridge.addItem("Beretta");
