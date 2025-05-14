@@ -10,7 +10,7 @@ void Equipment::addItem(const std::string &item)
 
 void Equipment::displayInventory() const
 {
-  std::cout << "Equipment: " << std::endl;
+  std::cout << "\nEquipment: " << std::endl;
 
   std::unordered_map<std::string, int> counts = this->countDuplicateItems();
   for (const auto &pair : counts)

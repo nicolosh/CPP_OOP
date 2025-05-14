@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 #include <string>
+#include <iostream>
 
 class Character
 {
@@ -15,27 +16,17 @@ public:
   // getters
   std::string getCharName() const { return characterName; }
   int getCharHealth() const { return health; }
-  unsigned int getDamage() const { return BASE_DAMAGE; }
+  int getDamage() const { return BASE_DAMAGE; }
 
   // setters
   void setCharName(const std::string &newName) { characterName = newName; }
-  void updateCharHealth(int healthPoints)
-  {
-    int updatedHealth = health + healthPoints;
-
-    if (updatedHealth > MAX_HEALTH)
-      health = MAX_HEALTH;
-    else if (updatedHealth < 0)
-      health = 0;
-    else
-      health = updatedHealth;
-  }
+  void updateCharHealth(int healthPoints) { health += healthPoints; }
 
 protected:
-  static const unsigned int BASE_DAMAGE = 10; // fixed and constant
-  static const unsigned int MAX_HEALTH = 100;
+  static const int BASE_DAMAGE = 10; // fixed and constant
+  static const int MAX_HEALTH = 100;
   std::string characterName; // variable
-  unsigned int health;       // variable
+  int health;                // variable
 
 private:
   void validateEmptyString(const std::string &str, const std::string &fieldName = "") const;

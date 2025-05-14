@@ -7,13 +7,13 @@
 class Warrior : public Character // Warrior is a character
 {
 public:
-  Warrior(const std::string &name, unsigned int health,
-          const unsigned int attack, const unsigned int defense,
-          const unsigned int strength);
+  Warrior(const std::string &name, int health,
+          unsigned int attack, unsigned int defense,
+          int strength);
   // getters
-  const unsigned int getAttack() { return attack; }
-  const unsigned int getDefense() { return defense; }
-  const unsigned int getStrength() { return strength; }
+  unsigned int getAttack() const { return attack; }
+  unsigned int getDefense() const { return defense; }
+  int getStrength() const { return strength; }
 
   void displayStatus() const // overriding the display status of character
   {
@@ -23,11 +23,15 @@ public:
     equipment.displayInventory();
   };
 
+  // setter
   void addItem(const std::string &item) { equipment.addItem(item); }
 
+  // TO DO: set attack, defense based on the equipment
+
 private:
-  unsigned int attack, defense, strength; // constants
-  Equipment equipment;                    // composition (Warrior has equipment features)
+  unsigned int attack, defense; // constant
+  int strength;                 // constant
+  Equipment equipment;          // composition (Warrior has equipment features)
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "warrior.h"
 
-Warrior::Warrior(const std::string &name, unsigned int health,
-                 const unsigned int attack, const unsigned int defense,
-                 const unsigned int strength)
+Warrior::Warrior(const std::string &name, int health,
+                 unsigned int attack, unsigned int defense,
+                 int strength)
     : Character(name, health)
 {
   this->attack = attack;
