@@ -10,10 +10,12 @@ public:
 
   void displayTeamStatus() const;
   void addWarrior(const Warrior &warrior) { team.push_back(warrior); }
-  void displayFinalFightResult(const Team &anotherTeam) const;
-
   const int getSize() const { return team.size(); }
+
+  // override
   Warrior &getWarrior(int index);
+  const Warrior &getWarrior(int index) const;
+
   const std::string &getTeamName() const { return name; }
 
   bool isTeamEmpty() const { return team.empty(); }

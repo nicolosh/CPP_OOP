@@ -14,28 +14,32 @@ public:
   const unsigned int getAttack() const { return attack; }
   const unsigned int getDefense() const { return defense; }
   const unsigned int getStrength() const { return strength; }
-  const unsigned int getAbility() const { return ability; }
+  const unsigned int getAbility() const { return multipleFights; }
+  const unsigned int getDamage() const { return BASE_DAMAGE; }
 
   void displayStatus() const // overriding the display status of character
   {
     Character::displayStatus();
     std::cout << "Attack: " << attack << "\nDefense: " << defense << "\nStrength: " << strength
-              << "\nAbility: " << ability << "\nTotal Damage: " << "( " << BASE_DAMAGE << " + " << strength << " ) = " << BASE_DAMAGE + strength << std::endl;
+              << "\nBase Damage: " << BASE_DAMAGE << "\nAbility to attack more enemy warriors simultaneously: "
+              << multipleFights << "\nTotal Damage : " << "( " << BASE_DAMAGE << " + "
+              << strength << " ) = " << BASE_DAMAGE + strength << std::endl;
     equipment.displayInventory();
   };
 
-  void warriorAttack(const Warrior &defender, const std::string &teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const;
+  void warriorAttackStatus(const Warrior &defender, const std::string &teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const;
   // setter
-  void addItem(const std::string &item)
-  {
-    equipment.addItem(item);
-  }
+  void addItem(const std::string &item) { equipment.addItem(item); }
+
+  // Random damage between baseDamage and totalDamage = baseDamage + strength
+  const int calculateDamageOnEnemy() const { return std::rand() % (strength + 1) + BASE_DAMAGE; }
 
   // TO DO: set attack, defense based on the equipment
 
 private:
-  unsigned int attack, defense, strength, ability; // ability to attack more warriors at the same time
-  Equipment equipment;                             // composition (Warrior has equipment features)
+  unsigned int attack, defense, strength, multipleFights; // ability to attack more warriors at the same time
+  Equipment equipment;                                    // composition (Warrior has equipment features)
+  static const unsigned int BASE_DAMAGE = 10;             // fixed and constant
 };
 
 #endif

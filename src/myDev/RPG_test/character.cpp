@@ -1,5 +1,4 @@
 #include "character.h"
-#include <iostream>
 
 Character::Character(const std::string &name, int health)
     : health(health)
@@ -9,19 +8,14 @@ Character::Character(const std::string &name, int health)
   characterName = name;
 }
 
-Character::~Character()
-{
-  // characterName[0] = toupper(characterName[0]);
-  // std::cout << characterName << " is being deleted! " << std::endl;
-}
+Character::~Character() {}
 
 void Character::displayStatus() const
 {
   std::cout << "Character Status: \n"
             << "Name: " << characterName
             << "\nHealth Score: "
-            << health << "\nBase Damage: "
-            << BASE_DAMAGE << std::endl;
+            << health << std::endl;
 }
 
 void Character::validateEmptyString(const std::string &str, const std::string &fieldName) const
