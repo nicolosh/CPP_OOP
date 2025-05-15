@@ -30,7 +30,7 @@ void simulateFight(Team &team1, Team &team2)
     // remove defeated character if any
     if (defender_team2.getCharHealth() <= 0)
     {
-      std::cout << "Team " << team2.getTeamName() << "'s Warrior " << defender_team2.getCharName() << " has been defeated!\n";
+      std::cout << "Team " << team2.getTeamName() << "'s Warrior " << defender_team2.getCharName() << " has been defeated!\n\n";
       team2.eraseWarrior(defenderIndexT2);
     }
 
@@ -52,7 +52,7 @@ void simulateFight(Team &team1, Team &team2)
 
     if (defender_team1.getCharHealth() <= 0)
     {
-      std::cout << "Team " << team1.getTeamName() << "'s Warrior " << defender_team1.getCharName() << " has been defeated!\n";
+      std::cout << "Team " << team1.getTeamName() << "'s Warrior " << defender_team1.getCharName() << " has been defeated!\n\n";
       team1.eraseWarrior(defenderIndexT1);
     }
     if (team1.isTeamEmpty())

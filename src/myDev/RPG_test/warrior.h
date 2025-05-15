@@ -20,7 +20,7 @@ public:
   {
     Character::displayStatus();
     std::cout << "Attack: " << attack << "\nDefense: " << defense << "\nStrength: " << strength
-              << "\nTotal Damage: " << BASE_DAMAGE + strength << std::endl;
+              << "\nAbility: " << ability << "\nTotal Damage: " << BASE_DAMAGE + strength << std::endl;
     equipment.displayInventory();
   };
 
