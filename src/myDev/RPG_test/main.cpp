@@ -17,7 +17,7 @@ void simulateFight(Team &team1, Team &team2)
     int defenderIndexT2 = std::rand() % team2.getSize(); // Random damage between 0 and team2.size - 1
 
     // picks 2 random warriors in the 2 teams
-    Warrior &stricker_team1 = team1.getWarrior(strickerIndexT1);
+    Warrior stricker_team1 = team1.getWarrior(strickerIndexT1);
     Warrior &defender_team2 = team2.getWarrior(defenderIndexT2);
 
     // calculate damage
@@ -42,7 +42,7 @@ void simulateFight(Team &team1, Team &team2)
     int strickerIndexT2 = std::rand() % team2.getSize();
     int defenderIndexT1 = std::rand() % team1.getSize();
 
-    Warrior &stricker_team2 = team2.getWarrior(strickerIndexT2);
+    Warrior stricker_team2 = team2.getWarrior(strickerIndexT2);
     Warrior &defender_team1 = team1.getWarrior(defenderIndexT1);
 
     int damage_warT2_ON_warT1 = std::rand() % (stricker_team2.getStrength() + 1) + stricker_team2.getDamage();
@@ -116,23 +116,23 @@ int main()
   beautiful.addWarrior(Erik);
   beautiful.addWarrior(Thomas);
 
-  Warrior Donna = Warrior("Donna", 100, 500, 100, 50);
-  Donna.addItem("sword");
-  Donna.addItem("arc");
-  Donna.addItem("AK-47");
-  Donna.addItem("sword");
-  // Donna.displayStatus();
+  Warrior Goku = Warrior("Goku", 100, 500, 100, 50);
+  Goku.addItem("sword");
+  Goku.addItem("arc");
+  Goku.addItem("AK-47");
+  Goku.addItem("sword");
+  // Goku.displayStatus();
 
-  Warrior Brooke = Warrior("Brooke", 100, 150, 440, 27);
-  Brooke.addItem("ENMA");
-  Brooke.addItem("Beretta");
-  Brooke.addItem("Bazooka");
-  Brooke.addItem("Helicopter");
-  // Brooke.displayStatus();
+  Warrior Gohan = Warrior("Gohan", 100, 150, 440, 27);
+  Gohan.addItem("ENMA");
+  Gohan.addItem("Beretta");
+  Gohan.addItem("Bazooka");
+  Gohan.addItem("Helicopter");
+  // Gohan.displayStatus();
 
   Team DragonBall = Team("DragonBall");
-  DragonBall.addWarrior(Donna);
-  DragonBall.addWarrior(Brooke);
+  DragonBall.addWarrior(Goku);
+  DragonBall.addWarrior(Gohan);
 
   std::cout << std::endl;
 

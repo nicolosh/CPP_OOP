@@ -14,7 +14,7 @@ public:
   // setter
   void addItem(const std::string &item);
   // getter
-  std::vector<std::string> getInventoryList() const { return inventoryList; }
+  const std::vector<std::string>& getInventoryList() const { return inventoryList; }
 
 protected:
   std::vector<std::string> inventoryList;

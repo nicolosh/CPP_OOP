@@ -27,7 +27,7 @@ std::unordered_map<std::string, int> Equipment::countDuplicateItems() const
   // traccia del numero di occorrenze di ciascuna stringa
   // come valore.
   std::unordered_map<std::string, int> itemCounts;
-  for (const auto &item : inventoryList)
+  for (const auto &item : getInventoryList())
     itemCounts[item]++;
 
   return itemCounts;

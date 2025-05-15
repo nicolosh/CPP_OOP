@@ -10,12 +10,11 @@ public:
 
   void displayTeamStatus() const;
   void addWarrior(const Warrior &warrior) { team.push_back(warrior); }
-  void displayFinalFightResult(Team &anotherTeam) const;
+  void displayFinalFightResult(const Team &anotherTeam) const;
 
-  int getSize() const { return team.size(); }
-  const std::vector<Warrior> &getTeam() const { return team; }
+  const int getSize() const { return team.size(); }
   Warrior &getWarrior(int index);
-  std::string getTeamName() const { return name; }
+  const std::string &getTeamName() const { return name; }
 
   bool isTeamEmpty() const { return team.empty(); }
   void eraseWarrior(int index);

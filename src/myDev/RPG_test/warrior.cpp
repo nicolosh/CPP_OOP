@@ -2,15 +2,16 @@
 
 Warrior::Warrior(const std::string &name, int health,
                  unsigned int attack, unsigned int defense,
-                 int strength)
+                 unsigned int strength, unsigned int ability)
     : Character(name, health)
 {
   this->attack = attack;
   this->defense = defense;
   this->strength = strength;
+  this->ability = ability;
 }
 
-void Warrior::warriorAttack(const Warrior &defender, const std::string& teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const
+void Warrior::warriorAttack(const Warrior &defender, const std::string &teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const
 {
   std::cout << this->getCharName() << " from T" + teamNameStricker + " attacks " << defender.getCharName()
             << " from T" + teamNameDefender + " for " << damageStr_ON_Def << " damage. "
