@@ -8,10 +8,10 @@ class Simulation
 {
 public:
   void displayFinalFightResult(const Team &team, const Team &anotherTeam) const;
-  static void teamAttack(const Team &teamStricker, Team &teamDefender);
+  void teamAttack(const Team &teamStricker, Team &teamDefender) const;
   void simulateFight(Team &teamA, Team &teamB) const;
+  void updateHealthEraseWarrior(const Team &teamStricker, Team &teamDefender, int index) const;
 };
 
-void swapTeams(Team &team1, Team &team2);
 
 #endif

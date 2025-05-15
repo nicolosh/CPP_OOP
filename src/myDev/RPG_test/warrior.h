@@ -34,8 +34,6 @@ public:
   // Random damage between baseDamage and totalDamage = baseDamage + strength
   const int calculateDamageOnEnemy() const { return std::rand() % (strength + 1) + BASE_DAMAGE; }
 
-  // TO DO: set attack, defense based on the equipment
-
 private:
   unsigned int attack, defense, strength, multipleFights; // ability to attack more warriors at the same time
   Equipment equipment;                                    // composition (Warrior has equipment features)

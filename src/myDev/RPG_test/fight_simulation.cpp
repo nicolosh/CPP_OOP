@@ -1,12 +1,5 @@
 #include "fight_simulation.h"
 
-void swapTeams(Team &team1, Team &team2)
-{
-  Team &temp = team1;
-  team1 = team2;
-  team2 = temp;
-}
-
 void Simulation::simulateFight(Team &teamA, Team &teamB) const
 {
   std::cout << "The fight begins between team " << teamA.getTeamName() << " and team " << teamB.getTeamName() << "!\n";
@@ -16,21 +9,26 @@ void Simulation::simulateFight(Team &teamA, Team &teamB) const
 
   while (!teamA.isTeamEmpty() && !teamB.isTeamEmpty())
   {
-    for (int team = 1; team <= 2; team++)
+    // Team A attacks Team B
+    teamAttack(teamA, teamB);
+
+    // fight end for Team B
+    if (teamB.isTeamEmpty())
     {
-      // Team A attacks Team B
-      teamAttack(teamA, teamB);
+      std::cout << "No more warriors left in Team " << teamB.getTeamName() << "\n";
+      displayFinalFightResult(teamB, teamA);
+      break;
+    }
 
-      // fight end for Team B
-      if (teamB.isTeamEmpty())
-      {
-        std::cout << "No more warriors left in Team " << teamB.getTeamName() << "\n";
-        displayFinalFightResult(teamB, teamA);
-        break;
-      }
+    // Team B attacks Team A
+    teamAttack(teamB, teamA);
 
-      if (team == 1)
-        swapTeams(teamA, teamB); // team attacker, defender roles inverted!
+    // fight end for Team A
+    if (teamA.isTeamEmpty())
+    {
+      std::cout << "No more warriors left in Team " << teamA.getTeamName() << "\n";
+      displayFinalFightResult(teamA, teamB);
+      break;
     }
   }
 }
@@ -42,34 +40,40 @@ void Simulation::displayFinalFightResult(const Team &team, const Team &anotherTe
   anotherTeam.displayTeamStatus();
 }
 
-void Simulation::teamAttack(const Team &teamStricker, Team &teamDefender)
+void Simulation::teamAttack(const Team &teamStricker, Team &teamDefender) const
 {
-  // Team 1 =  {Goku, Gohan, Lilly} attacks Team 2 = {Brooke, Ridge, Thomas, Erik}
-  // Team 1 attacks Team 2: indexes must be between 0 and teamX.size() otherwise it is not able to access the element if index = teamXsize() (vectors!!!)
-  int strickerIndexT = std::rand() % teamStricker.getSize();              // Random damage between 0 and team1.size - 1
-  const Warrior &stricker_team = teamStricker.getWarrior(strickerIndexT); // pick 1 random warrior in the T1
+  // Team Stricker =  {Goku, Gohan, Lilly} attacks Team Defender = {Brooke, Ridge, Thomas, Erik}
+  // Team Stricker attacks Team Defender: indexes must be between 0 and teamX.size() otherwise it is not able to access the element if index = teamXsize() (vectors!!!)
+  int strickerIndexT = std::rand() % teamStricker.getSize();             // Random damage between 0 and teamStricker.size - 1
+  const Warrior &stricker_war = teamStricker.getWarrior(strickerIndexT); // pick 1 random warrior in the Team stricker
 
-  // bool strickerT1WillingnessToFight_multipleEnemiesT2 = std::rand() % 2; // to generate true or false
+  bool strickerWillingnessToFight_multipleDefenders = std::rand() % 2; // to generate true or false
 
   // creating the subteam of T2 that warT1 can handle
   // attacking until there are warriors even if I can handle more warriors
-  for (int nWarrior = 1; nWarrior <= stricker_team.getAbility() && !teamDefender.isTeamEmpty(); nWarrior++)
+  if (strickerWillingnessToFight_multipleDefenders) // 1 vs more
   {
-    int defenderIndexT = std::rand() % teamDefender.getSize(); // Random damage between 0 and teamDefender.size - 1
-    Warrior &defender_team = teamDefender.getWarrior(defenderIndexT);
+    for (int nWarrior = 1; nWarrior <= stricker_war.getAbility() && !teamDefender.isTeamEmpty(); nWarrior++)
+      updateHealthEraseWarrior(teamStricker, teamDefender, strickerIndexT);
+  }
+  else // 1 vs 1
+    updateHealthEraseWarrior(teamStricker, teamDefender, strickerIndexT);
+}
 
-    // calculate damage
-    const int damage_warTStr_ON_warTDef = stricker_team.calculateDamageOnEnemy(); // Random damage between baseDamage and totalDamage
-    defender_team.updateCharHealth(-damage_warTStr_ON_warTDef);
-
-    // prints who attacks who and the health score of the defender
-    stricker_team.warriorAttackStatus(defender_team, teamStricker.getTeamName(), teamDefender.getTeamName(), damage_warTStr_ON_warTDef);
-
-    // remove defeated character if any
-    if (defender_team.getCharHealth() <= 0)
-    {
-      std::cout << "Team " << teamDefender.getTeamName() << "'s Warrior " << defender_team.getCharName() << " has been defeated!\n\n";
-      teamDefender.eraseWarrior(defenderIndexT);
-    }
+void Simulation::updateHealthEraseWarrior(const Team &teamStricker, Team &teamDefender, int index) const
+{
+  int defenderIndexT = std::rand() % teamDefender.getSize(); // Random damage between 0 and teamDefender.size - 1
+  Warrior &defender_war = teamDefender.getWarrior(defenderIndexT);
+  // calculate stricker damage on defender
+  const int damage_warTStr_ON_warTDef = teamStricker.getWarrior(index).calculateDamageOnEnemy(); // Random damage between baseDamage and totalDamage
+  // update defender health
+  defender_war.updateCharHealth(-damage_warTStr_ON_warTDef);
+  // prints who attacks who and the health score of the defender
+  teamStricker.getWarrior(index).warriorAttackStatus(defender_war, teamStricker.getTeamName(), teamDefender.getTeamName(), damage_warTStr_ON_warTDef);
+  // remove defeated character if any
+  if (defender_war.getCharHealth() <= 0)
+  {
+    std::cout << "Team " << teamDefender.getTeamName() << "'s Warrior " << defender_war.getCharName() << " has been defeated!\n\n";
+    teamDefender.eraseWarrior(defenderIndexT);
   }
 }
