@@ -14,9 +14,9 @@ public:
   void displayStatus() const;
 
   // getters
-  std::string getCharName() const { return characterName; }
+  const std::string &getCharName() const { return characterName; }
   int getCharHealth() const { return health; }
-  int getDamage() const { return BASE_DAMAGE; }
+  const int getDamage() const { return BASE_DAMAGE; }
 
   // setters
   void setCharName(const std::string &newName) { characterName = newName; }
@@ -24,7 +24,6 @@ public:
 
 protected:
   static const int BASE_DAMAGE = 10; // fixed and constant
-  static const int MAX_HEALTH = 100;
   std::string characterName; // variable
   int health;                // variable
 
