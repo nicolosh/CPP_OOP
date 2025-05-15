@@ -7,11 +7,13 @@ void simulateFight(Team &team1, Team &team2)
 {
   std::cout << "The fight begins between team " << team1.getTeamName() << " and team " << team2.getTeamName() << "!\n";
 
-  // Seed random number generator
+  // Seed random number generator (every time program is executed the random numbers differ from each other)
   std::srand(std::time(nullptr));
 
   while (!team1.isTeamEmpty() && !team2.isTeamEmpty())
   {
+    //              0     1      2                        0      1       2      3
+    // Team 1 =  {Goku, Gohan, Lilly} attacks Team 2 = {Brooke, Ridge, Thomas, Erik}
     // Team 1 attacks Team 2: indexes must be between 0 and teamX.size() otherwise it is not able to access the element if index = teamXsize() (vectors!!!)
     int strickerIndexT1 = std::rand() % team1.getSize(); // Random damage between 0 and team1.size - 1
     int defenderIndexT2 = std::rand() % team2.getSize(); // Random damage between 0 and team2.size - 1
