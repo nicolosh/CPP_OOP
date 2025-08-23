@@ -24,7 +24,7 @@ public:
   void setNewPIN(long int accessCode, std::time_t &currentTime);
 
 private:
-  friend class Auditor;
+  friend class Auditor; // can access the private bank_account members
   static const unsigned int MAX_DEPOSIT = 100000;
   static const unsigned int MAX_ID_NUMBER_LENGTH = 10; // indeed it corresponds to the max number of digits the unsigned int type can support
   static const unsigned int MAX_DAYS_RESET_PIN = 1;

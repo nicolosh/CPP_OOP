@@ -3,6 +3,7 @@
 int main()
 {
   bankAccount nickAccount("nick97", 1000, 12253);
+
   nickAccount.deposit(10020);
   nickAccount.withdraw(9000);
   nickAccount.displayBalance();
