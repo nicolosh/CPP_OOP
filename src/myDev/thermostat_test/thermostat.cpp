@@ -80,5 +80,6 @@ float Thermostat::temperatureConverter(float temperature, const std::string &des
   else if (uom == "C" && desiredUoM == "F")
     return FAR_CONST * temperature + FAR_OFFSET;
 
+  // no conversion needed
   return temperature;
 }
