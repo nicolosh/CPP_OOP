@@ -13,7 +13,7 @@ Warrior::Warrior(const std::string &name, int health,
 
 void Warrior::warriorAttackStatus(const Warrior &defender, const std::string &teamNameStricker, const std::string &teamNameDefender, int damageStr_ON_Def) const
 {
-  std::cout << getCharName() << " from T" + teamNameStricker + " attacks " << defender.getCharName()
+  std::cout << characterName << " from T" + teamNameStricker + " attacks " << defender.getCharName()
             << " from T" + teamNameDefender + " for " << damageStr_ON_Def << " damage. "
             << defender.getCharName() << "'s health is now " << defender.getCharHealth() + damageStr_ON_Def
             << " - " << damageStr_ON_Def << " = " << defender.getCharHealth() << ".\n";

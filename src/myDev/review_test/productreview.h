@@ -35,7 +35,7 @@ private:
   std::string productId;
   std::string category;
 
-  // Composition: ProductReview “has a” Sociable
+  // Composition: ProductReview “has a” Sociable (social features)
   Sociable social;
 };
 

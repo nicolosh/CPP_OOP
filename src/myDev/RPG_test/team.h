@@ -19,7 +19,7 @@ public:
   const std::string &getTeamName() const { return name; }
 
   bool isTeamEmpty() const { return team.empty(); }
-  void eraseWarrior(int index);
+  void eraseWarrior(int index); // warrior dead
 
 protected:
   std::string name;
